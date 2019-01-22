@@ -4,9 +4,9 @@ node ('master') {
       // Run the maven build
       withMaven(maven: 'M3') {
         if (isUnix()) {
-           sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+           sh "mvn -Dmaven.test.failure.ignore clean package"
         } else {
-          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+          bat(/"mvn -Dmaven.test.failure.ignore clean package/)
         }
       }
    }
